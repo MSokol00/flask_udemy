@@ -12,14 +12,16 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 # http://wtforms.readthedocs.io/en/stable/fields.html
 class SimpleForm(FlaskForm):
     # Just One Button
-    submit = SubmitField('Click Me.')
+    breed = StringField('What breed are You?')
+    submit = SubmitField('Submit')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = SimpleForm()
 
     if form.validate_on_submit():
-        flash("You just clicked the button!")
+        session['breed'] = form.breed.data
+        flash(f"You just changed breed to: {session['breed']}")
 
         return redirect(url_for('index'))
     return render_template('02-home.html', form=form)
