@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-3">Welcome to adoption site</h1>
+    <p class="lead">Here You can give Your puppy to addopt</p>
+    <hr class="my-2">
+    <p>We love all puppies</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{{url_for('add_pup')}}" role="button">Add puppy</a>
+    </p>
+</div>
+{% endblock  %}
