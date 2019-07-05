@@ -1,0 +1,4 @@
+{
+    "python.disableInstallationCheck": true,
+    "python.pythonPath": "c:/venv/flask_udemy/Scripts/python.exe"
+}
