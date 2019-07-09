@@ -37,5 +37,5 @@ def delete():
         pup = Puppy.query.get(id)
         db.session.delete(pup)
         db.session.commit()
-        return redirect(url_for('list'))
+        return redirect(url_for('puppies.list'))
     return render_template('delete.html', form=form)
