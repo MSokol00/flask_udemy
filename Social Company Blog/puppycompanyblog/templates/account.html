@@ -1,25 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="jumbotron">
-        <dif align="center">
+        <div align="center">
             <h1>Welcome to the page for {{current_user.username}}</h1>
-            <img align="center" src="{{url_for('static', filename='profile_pics/'+current_user.profile_image)}}">
-        </dif>
+            <img align="middle" src="{{url_for('static', filename='profile_pics/'+current_user.profile_image)}}">
+        </div>
     </div>
     <div class="container">
-        <form method="POST">
+        <form method="POST" action="" enctype="multipart/form-data">
             {{form.hidden_tag()}}
             <div class="form-group">
-                <label for="username">{{form.username.label}}</label>
+               {{form.username.label}}
                 {{form.username(class="form-control")}}
             </div>
             <div class="form-group">
-                <label for="email">{{form.email.label}}</label>
+                {{form.email.label}}
                 {{form.email(class="form-control")}}
             </div>
             <div class="form-group">
-                <label for="picture">{{form.picture.label}}</label>
-                {{form.picture(class="form-control")}}
+                {{form.picture.label}}
+                <div class="custom-file">
+                    {{form.picture(class="custom-file-input")}}
+                    <label class="custom-file-label" for="picture">Choose file</label>
+                </div>
+                <script>
+                    $('#picture').on('change',function(){
+                        var fileName = $(this).val();
+                        $(this).next('.custom-file-label').html(fileName);
+                    })
+                </script>
             </div>
             {{form.submit(class="btn btn-primary")}}
         </form>
