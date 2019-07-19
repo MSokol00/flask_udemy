@@ -1,6 +1,6 @@
 {
     "python.disableInstallationCheck": true,
-    "python.pythonPath": "c:/venv/flask_udemy/Scripts/python.exe",
+    "python.pythonPath": "/Users/msokol/.virtualenvs/flask_udemy/bin/python",
     "python.linting.pep8Enabled": false,
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
